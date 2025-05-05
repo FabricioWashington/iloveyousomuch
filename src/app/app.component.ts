@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, ElementRef, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { Router } from 'express';
 
 @Component({
@@ -8,7 +8,7 @@ import { Router } from 'express';
   standalone: false,
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'iloveyousomuch';
   loading = true;
 
@@ -18,6 +18,13 @@ export class AppComponent {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.simularCarregamentoInicial();
+  }
+
+  ngOnInit(): void {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.remove();
+    }
   }
 
   private simularCarregamentoInicial(): void {
