@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { loadFull } from "tsparticles";
 import { DialogConviteComponent } from '../../shared/components/dialog-convite/dialog-convite.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,8 +11,8 @@ declare var bootstrap: any;
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements OnInit {
-  @ViewChild('spotifyCarousel', { static: false }) carouselRef!: ElementRef;
+export class HomeComponent implements OnInit, AfterViewInit {
+  @ViewChild('spotifyCarousel', { static: false, read: ElementRef }) carouselRef!: ElementRef;
 
   private touchStartX = 0;
   private touchEndX = 0;
@@ -53,7 +53,10 @@ export class HomeComponent implements OnInit {
 
 
   ngAfterViewInit(): void {
-    const carousel: HTMLElement = this.carouselRef.nativeElement;
+    const carousel = document.getElementById('spotifyCarousel');
+    if (!carousel) return;
+
+    const bsCarousel = bootstrap.Carousel.getInstance(carousel) || new bootstrap.Carousel(carousel);
 
     carousel.addEventListener('touchstart', (event: TouchEvent) => {
       this.touchStartX = event.changedTouches[0].screenX;
@@ -61,18 +64,16 @@ export class HomeComponent implements OnInit {
 
     carousel.addEventListener('touchend', (event: TouchEvent) => {
       this.touchEndX = event.changedTouches[0].screenX;
-      this.handleGesture(carousel);
+      this.handleGesture(bsCarousel);
     });
   }
 
-  private handleGesture(carousel: HTMLElement): void {
-    const bootstrapCarousel = bootstrap.Carousel.getInstance(carousel) || new bootstrap.Carousel(carousel);
-
+  private handleGesture(bsCarousel: any): void {
     if (this.touchEndX < this.touchStartX - 50) {
-      bootstrapCarousel.next();
+      bsCarousel.next();
     }
     if (this.touchEndX > this.touchStartX + 50) {
-      bootstrapCarousel.prev();
+      bsCarousel.prev();
     }
   }
 
