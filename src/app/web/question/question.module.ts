@@ -17,6 +17,8 @@ import { SharedModule } from '../shared/shared.module';
     QuestionRoutingModule,
     AppMaterialModule,
     SharedModule,
-  ]
+  ],
+  exports: [
+    QuestionComponent],
 })
 export class QuestionModule { }

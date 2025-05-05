@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { NgxParticlesModule } from '@tsparticles/angular';
+import { QuestionModule } from '../question/question.module';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { NgxParticlesModule } from '@tsparticles/angular';
     CommonModule,
     HomeRoutingModule,
     SharedModule,
+    QuestionModule,
     AppMaterialModule,
     NgxParticlesModule,
   ]

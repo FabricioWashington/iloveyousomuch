@@ -16,10 +16,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   private touchStartX = 0;
   private touchEndX = 0;
-  startDate = new Date('2022-05-13T00:00:00');
-  timeDiff: any = {};
-  mostrarConvite = false;
-  media: { type: 'image' | 'video', src: string }[] = [
+  public resultado: boolean = false;
+  public startDate = new Date('2022-05-13T00:00:00');
+  public timeDiff: any = {};
+  public mostrarConvite = false;
+  public media: { type: 'image' | 'video', src: string }[] = [
     { type: 'image', src: 'assets/img1.jpg' },
     { type: 'image', src: 'assets/img2.jpg' },
     { type: 'image', src: 'assets/img3.jpg' },
@@ -98,6 +99,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
     };
   }
 
+
+  atualizarResultado() {
+    this.resultado = true;
+  }
 
   abrirConvite(): void {
     this.dialog.open(DialogConviteComponent, {

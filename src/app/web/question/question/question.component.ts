@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrl: './question.component.scss'
 })
 export class QuestionComponent implements OnInit {
+  @Output() resultCorreto = new EventEmitter<void>();
+
   public question: boolean = false;
   public resposta: string = '';
   public resultado: string = '';
@@ -42,8 +44,9 @@ export class QuestionComponent implements OnInit {
     );
 
     if (acertou) {
-      this.router.navigate(['/home']).then(success => {
-      });
+      // this.router.navigate(['/home']).then(success => {
+      // });
+      this.resultCorreto.emit();
     } else {
       this.resultado = 'Resposta Incorreta';
     }
