@@ -1,0 +1,133 @@
+<div class="container-fluid text-center py-5 text-white">
+  <!-- Carrossel de Músicas Spotify -->
+  <div #spotifyCarousel id="spotifyCarousel" class="carousel slide mt-4" data-bs-ride="carousel" data-bs-touch="true">
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <div class="ratio ratio-16x9 w-100" style="max-width: 600px; margin: 0 auto;">
+          <iframe src="https://open.spotify.com/embed/track/6Ulh9GPYz6JKdv04qc3q2U?utm_source=generator&theme=0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="ratio ratio-16x9 w-100" style="max-width: 600px; margin: 0 auto;">
+          <iframe src="https://open.spotify.com/embed/track/6LNpAdMw4E10p7NLVqflJ4?utm_source=generator&theme=0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="ratio ratio-16x9 w-100" style="max-width: 600px; margin: 0 auto;">
+          <iframe src="https://open.spotify.com/embed/track/2077eHXxwRgxDhEBtJV0wD?utm_source=generator&theme=0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="ratio ratio-16x9 w-100" style="max-width: 600px; margin: 0 auto;">
+          <iframe src="https://open.spotify.com/embed/track/2Xcc5Rsawh7EkzUwdVFrnn?utm_source=generator&theme=0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="ratio ratio-16x9 w-100" style="max-width: 600px; margin: 0 auto;">
+          <iframe src="https://open.spotify.com/embed/track/5C0wi5U4l0YUv7yIKe2TEe?utm_source=generator&theme=0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="ratio ratio-16x9 w-100" style="max-width: 600px; margin: 0 auto;">
+          <iframe src="https://open.spotify.com/embed/track/6NTZBTAUKaAzyVWijCCSeC?utm_source=generator&theme=0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Setas visíveis apenas no desktop -->
+    <button class="carousel-control-prev d-none d-md-flex" type="button" data-bs-target="#spotifyCarousel"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next d-none d-md-flex" type="button" data-bs-target="#spotifyCarousel"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- Contador de Tempo -->
+
+  <div class="tempo-container mt-4 d-flex align-items-center justify-content-center flex-column">
+    <p class="lead text-white">Juntos há:</p>
+    <div class="tempo-cards">
+      <div class="tempo-card">
+        <div class="tempo-valor">{{ timeDiff.years }}</div>
+        <div class="tempo-label">anos</div>
+      </div>
+      <div class="tempo-card">
+        <div class="tempo-valor">{{ timeDiff.months }}</div>
+        <div class="tempo-label">meses</div>
+      </div>
+      <div class="tempo-card">
+        <div class="tempo-valor">{{ timeDiff.days }}</div>
+        <div class="tempo-label">dias</div>
+      </div>
+      <div class="tempo-card">
+        <div class="tempo-valor">{{ timeDiff.minutes }}</div>
+        <div class="tempo-label">minutos</div>
+      </div>
+      <div class="tempo-card">
+        <div class="tempo-valor">{{ timeDiff.seconds }}</div>
+        <div class="tempo-label">segundos</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<hr class="section-divider">
+
+<div class="w-100 overflow-hidden position-relative">
+  <div class="d-flex gap-4 scroll-track px-5 py-3">
+
+    <div *ngFor="let item of media" class="flex-shrink-0 rounded-4 shadow" style="width: 300px; height: 400px;">
+      <ng-container [ngSwitch]="item.type">
+
+        <img *ngSwitchCase="'image'" [src]="item.src" class="w-100 h-100 object-cover rounded-4" />
+
+        <video *ngSwitchCase="'video'" class="w-100 h-100 object-cover rounded-4" autoplay muted loop playsinline>
+          <source [src]="item.src" type="video/mp4">
+          Seu navegador não suporta vídeo.
+        </video>
+
+      </ng-container>
+    </div>
+
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<section class="container my-5 text-center text-white">
+  <h3>❤️ Você é a melhor parte da minha vida ❤️</h3>
+  <p class="mt-3">
+    Esses anos ao seu lado foram os mais especiais. Cada momento ao seu lado é único e memorável.
+    Obrigado por tudo que vivemos e ainda vamos viver juntos.
+    Cada instante ao seu lado é uma memória que guardo com carinho no coração.
+    Foram tantos sorrisos, conversas, abraços e momentos que marcaram nossa história.
+    Obrigado por ser meu porto seguro, minha alegria diária e meu amor constante.
+    Que venham muitos e muitos anos de nós, de amor, de cumplicidade e de sonhos realizados juntos.
+    Eu Te amo, hoje e sempre. 💫
+  </p>
+</section>
+
+<div class="text-center">
+  <div class="text-center my-5 mb-5">
+    <button class="btn btn-light btn-lg btn-glow" (click)="abrirConvite()">
+      💌 Clique aqui
+    </button>
+  </div>
+</div>

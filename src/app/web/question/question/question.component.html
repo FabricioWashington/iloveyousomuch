@@ -1,0 +1,23 @@
+<body class="vh-100 vw-100">
+  <app-amor *ngIf="mostrarAmor" (completo)="amorCompleto()"></app-amor>
+
+    <div *ngIf="!question && !mostrarAmor" class="d-flex align-items-center justify-content-center h-100 w-100">
+      <button (click)="click()" class="btn btn-primary">Clique</button>
+    </div>
+
+    <div *ngIf="question && !mostrarAmor" class="d-flex align-items-center justify-content-center h-100 w-100 flex-column">
+      <h4 class="text-white text-center">Aonde foi nosso primeiro encontro?</h4>
+      <mat-form-field appearance="fill">
+        <input matInput [(ngModel)]="resposta" placeholder="Sua resposta" required />
+      </mat-form-field>
+
+      <div>
+        <button (click)="enviar()" class="btn btn-primary">Enviar</button>
+      </div>
+
+      <div *ngIf="resultado" class="text-center text-white mt-3">
+        {{ resultado }}
+      </div>
+    </div>
+
+</body>

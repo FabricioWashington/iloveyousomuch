@@ -1,0 +1,16 @@
+<div class="amor-container" (click)="handleClickOrSpace()" tabindex="0" (window:keydown.space)="handleClickOrSpace()">
+  <div class="amor-bar-container">
+    <div class="amor-bar" [style.width.%]="amor"></div>
+
+    <div class="coracoes">
+      <div class="coracao"
+           *ngFor="let c of coracoes"
+           [style.left.%]="c.left"
+           [style.animationDuration.s]="c.duracao">
+        ❤️
+      </div>
+    </div>
+  </div>
+
+  <p class="mensagem">{{ mensagem }}</p>
+</div>
