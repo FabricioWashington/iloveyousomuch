@@ -100,3 +100,11 @@ hr.section-divider {
   text-transform: uppercase;
   color: #e0e0e0;
 }
+
+.carousel-control-prev,
+.carousel-control-next {
+  pointer-events: none;
+  span {
+    pointer-events: auto;
+  }
+}
