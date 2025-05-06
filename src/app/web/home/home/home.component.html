@@ -123,10 +123,17 @@
   </p>
 </section>
 
-<div *ngIf="resultado" class="text-center">
+<div *ngIf="resultado" class="text-center ">
   <div class="text-center my-5 mb-5">
     <button class="btn btn-light btn-lg btn-glow" (click)="abrirConvite()">
       💌 Clique aqui
     </button>
   </div>
 </div>
+<footer class="bg-surface d-flex align-items-center justify-content-center">
+  <div>
+    <p class="text-center text-white pt-3 fs-6">
+      Feito com 💖 por <strong>Fabrício Washington Dev</strong> • {{ currentYear }}
+    </p>
+  </div>
+</footer>

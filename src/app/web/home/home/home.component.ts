@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   public resultado: boolean = false;
   public startDate = new Date('2022-05-13T00:00:00');
   public timeDiff: any = {};
+  public currentYear: number = new Date().getFullYear();
   public mostrarConvite = false;
   public media: { type: 'image' | 'video', src: string }[] = [
     { type: 'image', src: 'assets/img1.jpg' },
