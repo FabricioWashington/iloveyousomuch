@@ -38,6 +38,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
     { type: 'image', src: 'assets/img14.jpeg' },
     { type: 'image', src: 'assets/img15.jpeg' },
     { type: 'image', src: 'assets/img16.jpeg' },
+    { type: 'image', src: 'assets/img17.jpeg' },
+    { type: 'image', src: 'assets/img18.jpeg' },
+    { type: 'image', src: 'assets/img19.jpeg' },
+    { type: 'image', src: 'assets/img20.jpeg' },
+    { type: 'image', src: 'assets/img21.jpeg' },
+    { type: 'image', src: 'assets/img22.jpeg' },
+    { type: 'image', src: 'assets/img23.jpeg' },
+    { type: 'image', src: 'assets/img24.jpeg' },
+    { type: 'image', src: 'assets/img25.jpeg' },
+
 
     { type: 'video', src: 'assets/video1.mp4' },
     { type: 'video', src: 'assets/video2.MOV' },

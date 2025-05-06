@@ -2,7 +2,7 @@
 
   <app-question *ngIf="!resultado" (resultCorreto)="atualizarResultado()"></app-question>
 
-  <div *ngIf="resultado" id="spotifyCarousel" class="carousel slide mt-4" data-bs-ride="carousel" data-bs-touch="true">
+  <div [ngClass]="{'d-none': !resultado}" id="spotifyCarousel" class="carousel slide mt-4" data-bs-ride="carousel" data-bs-touch="true">
     <div class="carousel-inner">
 
       <div class="carousel-item active">
@@ -47,6 +47,14 @@
         </div>
       </div>
 
+      <div class="carousel-item">
+        <div class="ratio ratio-16x9 w-100" style="max-width: 600px; margin: 0 auto;">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/4AvuFFRiBd0BoCvblTWsZl?utm_source=generator&theme=0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+
     </div>
 
     <button class="carousel-control-prev d-flex" type="button" data-bs-target="#spotifyCarousel" data-bs-slide="prev">
@@ -59,7 +67,7 @@
     </button>
   </div>
 
-  <div *ngIf="resultado" class="tempo-container mt-4 d-flex align-items-center justify-content-center flex-column">
+  <div [ngClass]="{'d-none': !resultado}" class="tempo-container mt-4 d-flex align-items-center justify-content-center flex-column">
     <p class="lead text-white">Juntos há:</p>
     <div class="tempo-cards">
       <div class="tempo-card">
@@ -87,9 +95,9 @@
 
 </div>
 
-<hr *ngIf="resultado" class="section-divider">
+<hr [ngClass]="{'d-none': !resultado}" class="section-divider">
 
-<div *ngIf="resultado" class="w-100 overflow-hidden position-relative">
+<div [ngClass]="{'d-none': !resultado}" class="w-100 overflow-hidden position-relative">
   <div class="d-flex gap-4 scroll-track px-5 py-3">
 
     <div *ngFor="let item of media" class="flex-shrink-0 rounded-4 shadow" style="width: 300px; height: 400px;">
@@ -108,9 +116,9 @@
   </div>
 </div>
 
-<hr *ngIf="resultado" class="section-divider">
+<hr [ngClass]="{'d-none': !resultado}" class="section-divider">
 
-<section *ngIf="resultado" class="container my-5 text-center text-white">
+<section [ngClass]="{'d-none': !resultado}" class="container my-5 text-center text-white">
   <h3>❤️ Você é a melhor parte da minha vida ❤️</h3>
   <p class="mt-3">
     Esses anos ao seu lado foram os mais especiais. Cada momento ao seu lado é único e memorável.
@@ -123,7 +131,7 @@
   </p>
 </section>
 
-<div *ngIf="resultado" class="text-center ">
+<div [ngClass]="{'d-none': !resultado}" class="text-center ">
   <div class="text-center my-5 mb-5">
     <button class="btn btn-light btn-lg btn-glow" (click)="abrirConvite()">
       💌 Clique aqui
