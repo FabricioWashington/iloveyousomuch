@@ -2,7 +2,8 @@
 
   <app-question *ngIf="!resultado" (resultCorreto)="atualizarResultado()"></app-question>
 
-  <div [ngClass]="{'d-none': !resultado}" id="spotifyCarousel" class="carousel slide mt-4" data-bs-ride="carousel" data-bs-touch="true">
+  <div [ngClass]="{'d-none': !resultado}" id="spotifyCarousel" class="carousel slide mt-4" data-bs-ride="carousel"
+    data-bs-touch="true">
     <div class="carousel-inner">
 
       <div class="carousel-item active">
@@ -55,6 +56,14 @@
         </div>
       </div>
 
+      <div class="carousel-item">
+        <div class="ratio ratio-16x9 w-100" style="max-width: 600px; margin: 0 auto;">
+          <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/0XgCdrFq5xd9lXGflRtHhg?utm_source=generator&theme=0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+
     </div>
 
     <button class="carousel-control-prev d-flex" type="button" data-bs-target="#spotifyCarousel" data-bs-slide="prev">
@@ -67,7 +76,8 @@
     </button>
   </div>
 
-  <div [ngClass]="{'d-none': !resultado}" class="tempo-container mt-4 d-flex align-items-center justify-content-center flex-column">
+  <div [ngClass]="{'d-none': !resultado}"
+    class="tempo-container mt-4 d-flex align-items-center justify-content-center flex-column">
     <p class="lead text-white">Juntos há:</p>
     <div class="tempo-cards">
       <div class="tempo-card">
