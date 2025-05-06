@@ -53,19 +53,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
     setInterval(() => this.updateTime(), 1000);
   }
 
-
   ngAfterViewInit(): void {
     const carousel = document.getElementById('spotifyCarousel');
-    if (!carousel) return;
+    const carouselInner = carousel?.querySelector('.carousel-inner');
+
+    if (!carousel || !carouselInner) return;
 
     const bsCarousel = bootstrap.Carousel.getInstance(carousel) || new bootstrap.Carousel(carousel);
 
-    carousel.addEventListener('touchstart', (event: TouchEvent) => {
-      this.touchStartX = event.changedTouches[0].screenX;
+    carouselInner.addEventListener('touchstart', (event: Event) => {
+      const touchEvent = event as TouchEvent;
+      this.touchStartX = touchEvent.changedTouches[0].screenX;
     });
 
-    carousel.addEventListener('touchend', (event: TouchEvent) => {
-      this.touchEndX = event.changedTouches[0].screenX;
+    carouselInner.addEventListener('touchend', (event: Event) => {
+      const touchEvent = event as TouchEvent;
+      this.touchEndX = touchEvent.changedTouches[0].screenX;
       this.handleGesture(bsCarousel);
     });
   }
