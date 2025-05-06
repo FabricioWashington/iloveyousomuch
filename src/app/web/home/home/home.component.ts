@@ -59,16 +59,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     if (!carousel || !carouselInner) return;
 
-    const bsCarousel = bootstrap.Carousel.getInstance(carousel) || new bootstrap.Carousel(carousel);
+    const bsCarousel = bootstrap.Carousel.getOrCreateInstance(carousel);
 
     carouselInner.addEventListener('touchstart', (event: Event) => {
-      const touchEvent = event as TouchEvent;
-      this.touchStartX = touchEvent.changedTouches[0].screenX;
+      const touch = (event as TouchEvent).changedTouches[0];
+      this.touchStartX = touch.screenX;
     });
 
     carouselInner.addEventListener('touchend', (event: Event) => {
-      const touchEvent = event as TouchEvent;
-      this.touchEndX = touchEvent.changedTouches[0].screenX;
+      const touch = (event as TouchEvent).changedTouches[0];
+      this.touchEndX = touch.screenX;
       this.handleGesture(bsCarousel);
     });
   }
