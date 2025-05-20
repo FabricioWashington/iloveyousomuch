@@ -93,26 +93,38 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   updateTime() {
-    const now = new Date().getTime();
-    const start = this.startDate.getTime();
-    let diff = now - start;
+    const now = new Date();
+    let start = new Date(this.startDate);
 
-    const seconds = Math.floor(diff / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-    const months = Math.floor(days / 30.44);
-    const years = Math.floor(months / 12);
+    let years = now.getFullYear() - start.getFullYear();
+    let months = now.getMonth() - start.getMonth();
+    let days = now.getDate() - start.getDate();
+
+    if (days < 0) {
+      months--;
+      const previousMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+      days += previousMonth.getDate();
+    }
+
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    const totalDiff = now.getTime() - start.getTime();
+    const seconds = Math.floor(totalDiff / 1000) % 60;
+    const minutes = Math.floor(totalDiff / (1000 * 60)) % 60;
+    const hours = Math.floor(totalDiff / (1000 * 60 * 60)) % 24;
 
     this.timeDiff = {
       years,
-      months: months % 12,
-      days: days % 30,
-      minutes: minutes % 60,
-      seconds: seconds % 60
+      months,
+      days,
+      hours,
+      minutes,
+      seconds
     };
   }
-
 
   atualizarResultado() {
     this.resultado = true;
